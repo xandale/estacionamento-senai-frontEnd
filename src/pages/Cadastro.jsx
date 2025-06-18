@@ -72,13 +72,13 @@ function Cadastro() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                 />
-                <select
+                <select>
                     value={tipo_usuario}
                     onChange={(event) => setTipo_usuario(event.target.value)}
-                    />
                     <option value="Aluno">Aluno</option>
                     <option value="Professor">Professor</option>
                     <option value="Admin">Admin</option>
+                </select>
                 <input
                     type="password"
                     placeholder="Digite sua senha"
