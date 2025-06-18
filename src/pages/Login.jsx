@@ -10,7 +10,7 @@ function Login() {
 async function handleSubmit (event) {
     event.preventDefault(); 
     try {
-        const resposta = await fetch('https://api-tarefas-20dr.onrender.com/login',{
+        const resposta = await fetch('http://localhost:3000/login',{
             method: 'Post',
             headers:{
                 'Content-Type': 'application/json',  // Define que os dados enviados são JSON'

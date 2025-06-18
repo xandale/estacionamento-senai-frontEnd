@@ -12,12 +12,11 @@ function Cadastro() {
 
     const navigate = useNavigate();
 
-
     async function handleSubmit (event) {
         event.preventDefault();
         console.log(nome, cpf, telefone, email, tipo_usuario, senha);
         try {
-            const resposta = await fetch("https://api-tarefas-20dr.onrender.com/cadastro", {
+            const resposta = await fetch("http://localhost:3000/cadastro", {
               method:"Post",
               headers:{
                 'Content-Type': 'application/json',  // Define que os dados enviados são JSON'
@@ -72,9 +71,10 @@ function Cadastro() {
                     value={email}
                     onChange={(event) => setEmail(event.target.value)}
                 />
-                <select>
+                <select
                     value={tipo_usuario}
                     onChange={(event) => setTipo_usuario(event.target.value)}
+                    >                    
                     <option value="Aluno">Aluno</option>
                     <option value="Professor">Professor</option>
                     <option value="Admin">Admin</option>
