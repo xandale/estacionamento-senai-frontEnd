@@ -17,3 +17,4 @@ function AppRoutes() {
     </BrowserRouther>
   );
 }
+export default AppRoutes
