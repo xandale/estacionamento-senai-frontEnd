@@ -49,7 +49,7 @@ function Navbar() {
               Você pode implementar um toggle de tema aqui depois */}
           {
           <li>
-            <button onClick={trocarTema}>🌙</button>
+            {/* <button onClick={trocarTema}>🌙</button> */}
           </li> 
           }
         </ul>

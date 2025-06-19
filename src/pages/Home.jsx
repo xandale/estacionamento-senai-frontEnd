@@ -7,8 +7,9 @@ function Home()  {
         return (
             <div>
                 <h1>Estacionamento Sesi Senai!</h1>
+                <h2>Aqui é a HOME</h2>
                 <p>vagas serão vizualinado aqui</p>
-                <P>Aqui vai ter uma imagem pra prenencher espaço</P>
+                <p>Aqui vai ter uma imagem pra prenencher espaço</p>
             </div>
         );
 }
