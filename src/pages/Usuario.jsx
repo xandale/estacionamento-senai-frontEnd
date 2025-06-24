@@ -15,10 +15,14 @@ async function buscarDadosUsuario() {
     try{
         // buscando token para usar
         const token = localStorage.getItem("token");
-        const params = {}
+        const params = {};
+        
         const retorno  = await axios.get("http://localhost:3000/usuarios/me",{
-            headers: { Authorization: token}
+               headers: { Authorization: token },
+                params
         });
+        
+    console.log("Dados recebidos", retorno.data); // 👈 Aqui!
 
         setUsuario(retorno.data)
     } catch (erro){

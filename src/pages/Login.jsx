@@ -25,7 +25,7 @@ async function handleSubmit (event) {
             console.log("Login bem-sucedido:", dados);
             // Aqui você pode salvar o token no localStorage, por exemplo
             localStorage.setItem("token", dados.token);
-            navigate("/");
+            navigate("/home");
         }else {
             console.error("Erro no login:", dados.mensagem);
             // Aqui você pode mostrar a mensagem de erro na tela
@@ -57,7 +57,7 @@ async function handleSubmit (event) {
 
                 <button type="submit">Entrar</button>
             </form>
-            <button type="button" onClick={() => navigate('/')}>
+            <button type="button" onClick={() => navigate('/cadastro')}>
             Cadastre-se
             </button>
         </div>
