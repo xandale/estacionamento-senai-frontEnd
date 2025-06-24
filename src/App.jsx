@@ -1,13 +1,15 @@
-//aqui sera renderizado as paginas
-import AppRoutes from './routes/AppRoutes.jsx'
+import Header from './components/Header';
+import AppRoutes from './routes/AppRoutes';
+import './styles/App.css';
 
 function App() {
-
   return (
-    <div className="App">
-      <AppRoutes/>
-    </div>
-  )
+    <>
+      <div className="app-content">
+        <AppRoutes />
+      </div>
+    </>
+  );
 }
 
-export default App
+export default App;

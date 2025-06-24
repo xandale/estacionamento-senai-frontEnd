@@ -1,37 +1,33 @@
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import React from "react";
+import { useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
-import Login from "../pages/Login.jsx";
-import Cadastro from "../pages/Cadastro.jsx";
-import Home from "../pages/Home.jsx";
-import Navbar from "../components/Navbar.jsx";
-import Usuario from "../pages/Usuario.jsx";
-import Veiculos from "../pages/Veiculo.jsx";
-function AppLayout() {
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Cadastro from "../pages/Cadastro";
+import Usuario from "../pages/Usuario";
+import Veiculos from "../pages/Veiculo";
+import Header from "../components/Header";
+
+function AppRoutes() {
   const location = useLocation();
 
-  // Esconde Navbar nas páginas de login e cadastro
-  const esconderNavbar = location.pathname === "/" || location.pathname === "/cadastro";
+  // Verifica se a rota atual é login ou cadastro
+  const esconderHeader = ["/login", "/cadastro"].includes(location.pathname);
 
   return (
     <>
-      {!esconderNavbar && <Navbar />}
+      {!esconderHeader && <Header />} {/* Mostra o Header apenas se não for login ou cadastro */}
 
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/usuario" element={<Usuario />} />
-        <Route path="/veiculos" element= {<Veiculos/>} />
+        <Route path="/veiculo" element={<Veiculos />} />
+        <Route path="*" element={<Login />} /> {/* Rota padrão */}
       </Routes>
     </>
-  );
-}
-
-function AppRoutes() {
-  return (
-    <BrowserRouter>
-      <AppLayout />
-    </BrowserRouter>
   );
 }
 
