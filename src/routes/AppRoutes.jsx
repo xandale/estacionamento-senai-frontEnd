@@ -4,6 +4,7 @@ import Login from "../pages/Login.jsx";
 import Cadastro from "../pages/Cadastro.jsx";
 import Home from "../pages/Home.jsx";
 import Navbar from "../components/Navbar.jsx";
+import Veiculos from "../pages/Veiculo.jsx";
 
 function AppLayout() {
   const location = useLocation();
@@ -19,6 +20,8 @@ function AppLayout() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
+        <Route path="/veiculos" element={<Veiculos />} />
+        {/* Adicione outras rotas conforme necessário */}
       </Routes>
     </>
   );
