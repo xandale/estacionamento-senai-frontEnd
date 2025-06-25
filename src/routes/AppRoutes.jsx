@@ -2,11 +2,11 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 
-import Home from "../pages/Home";
-import Login from "../pages/Login";
-import Cadastro from "../pages/Cadastro";
-import Usuario from "../pages/Usuario";
-import Veiculos from "../pages/Veiculo";
+import Home from "../pages/UsuarioComum/Home";
+import Login from "../pages/UsuarioComum/Login";
+import Cadastro from "../pages/UsuarioComum/Cadastro";
+import Usuario from "../pages/UsuarioComum/Usuario";
+import Veiculos from "../pages/UsuarioComum/Veiculo";
 import Header from "../components/Header";
 
 function AppRoutes() {
