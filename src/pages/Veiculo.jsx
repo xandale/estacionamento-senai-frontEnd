@@ -140,63 +140,6 @@ function Veiculos() {
         <option value="Outro">Outro</option>
       </select>
 
-<<<<<<< HEAD
-            <h2>Veículos Cadastrados</h2>
-            {veiculos.length > 0 ? (
-                veiculos.map((item) => (
-                    <div className="veiculo" key={item.id}>
-                        {id_veiculo === item.id ? (
-                            <div>
-                                <input
-                                    type="text"
-                                    value={novaPlaca}
-                                    onChange={(e) => setNovaPlaca(e.target.value)}
-                                    placeholder="Nova Placa"
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    value={novoModelo}
-                                    onChange={(e) => setNovoModelo(e.target.value)}
-                                    placeholder="Novo Modelo"
-                                    required
-                                />
-                                <input
-                                    type="text"
-                                    value={novaCor}
-                                    onChange={(e) => setNovaCor(e.target.value)}
-                                    placeholder="Nova Cor"
-                                    required
-                                />
-                                <select value={novoTipoVeiculo} onChange={(e) => setNovoTipoVeiculo(e.target.value)}>
-                                    <option value="Carro">Carro</option>
-                                    <option value="Moto">Moto</option>
-                                    <option value="Outro">Outro</option>
-                                </select>
-                                <button onClick={() => salvarEdicao(item.id)}>Salvar</button>
-                            </div>
-                        ) : (
-                            <div>
-                                <p><strong>Placa:</strong> {item.placa}</p>
-                                <p><strong>Modelo:</strong> {item.modelo}</p>
-                                <p><strong>Cor:</strong> {item.cor}</p>
-                                <p><strong>Tipo:</strong> {item.tipo_veiculo}</p>
-                                <button onClick={() => {
-                                    setIdDoVeiculo(item.id);
-                                    setNovaPlaca(item.placa);
-                                    setNovoModelo(item.modelo);
-                                    setNovaCor(item.cor);
-                                    setNovoTipoVeiculo(item.tipo_veiculo);
-                                }}>Editar</button>
-                                <button class onClick={() => deletarVeiculo(item.id)}>Excluir</button>
-                            </div>
-                        )}
-                    </div>
-                ))
-            ) : (
-                <p>Nenhum veículo cadastrado.</p>
-            )}
-=======
       <h2>Veículos</h2>
       {veiculos.map((item) => (
         <div key={item.id_veiculo} className="veiculo">
@@ -231,7 +174,6 @@ function Veiculos() {
               <button onClick={() => deletarVeiculo(item.id_veiculo)}>Excluir</button>
             </>
           )}
->>>>>>> 73a388549f78224ab88ffcc2168f0d1a203893dc
         </div>
       ))}
     </div>
