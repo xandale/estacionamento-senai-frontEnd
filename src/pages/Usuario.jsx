@@ -69,7 +69,7 @@ function Usuario() {
 
       alert("Conta excluída com sucesso!");
       localStorage.clear();
-      navigate("/login");
+      navigate("/");
     } catch (erro) {
       console.error("Erro ao excluir usuário:", erro);
       alert("Erro ao excluir a conta. Tente novamente.");
@@ -82,7 +82,7 @@ function Usuario() {
     if (token) {
       buscarDadosUsuario();
     } else {
-      navigate("/login");
+      navigate("/");
     }
   }, []);
 

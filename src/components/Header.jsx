@@ -7,7 +7,7 @@ function Header() {
 
     function handleLogout() {
         localStorage.removeItem("token");
-        navigate("/login");
+        navigate("/");
     }
 
     return (
