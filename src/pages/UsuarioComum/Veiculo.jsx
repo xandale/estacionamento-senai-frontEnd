@@ -118,7 +118,6 @@ function Veiculos() {
     const token = localStorage.getItem("token");
     if (token) {
       buscarVeiculos();
-      buscarVagas();
     }
   }, [filtroTipoVeiculo]);
 
@@ -133,15 +132,6 @@ function Veiculos() {
           <option value="Carro">Carro</option>
           <option value="Moto">Moto</option>
           <option value="Outro">Outro</option>
-        </select>
-
-        <select value={idVaga} onChange={(e) => setIdVaga(e.target.value)} required>
-          <option value="">Selecione uma vaga</option>
-          {vagas.map(vaga => (
-            <option key={vaga.id_vaga} value={vaga.id_vaga}>
-              Vaga #{vaga.id_vaga} — {vaga.vagas_ocupadas}/{vaga.total_vagas} ocupadas
-            </option>
-          ))}
         </select>
 
         <button type="submit">Cadastrar</button>
