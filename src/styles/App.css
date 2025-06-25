@@ -74,11 +74,6 @@ body {
   .container {
     padding: 25px 15px;
   }
-
-  .container .btn {
-    font-size: 14px;
-    padding: 10px;
-  }
 }
 
 
@@ -342,5 +337,85 @@ header {
   input, select, textarea {
     padding: 12px;
     font-size: 0.95rem;
+  }
+}
+
+/* container principal */
+.container-cadastro {
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px 12px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* campos de formulário */
+.container-cadastro input,
+.container-cadastro button,
+.container-cadastro select,
+.container-cadastro textarea {
+  font-size: 14px;
+  padding: 6px 10px;
+  margin-bottom: 8px;
+  height: 34px;
+  box-sizing: border-box;
+}
+
+/* botão final */
+.container-cadastro button {
+  background-color: #005CA9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+/* Título */
+.container-cadastro h1,
+.container-cadastro h2 {
+  color: #005CA9;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Inputs e selects */
+.container-cadastro input,
+.container-cadastro select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.2s ease;
+}
+
+.container-cadastro input:focus,
+.container-cadastro select:focus {
+  border-color: #005CA9;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 92, 169, 0.2);
+}
+
+
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container-cadastro {
+    padding: 25px 15px;
   }
 }

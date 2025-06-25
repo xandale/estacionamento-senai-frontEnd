@@ -37,7 +37,7 @@ function Cadastro() {
     }
 
     return (
-        <div className="container">
+        <div className="container-cadastro">
             <form onSubmit={handleSubmit}>
                 <h2>Cadastro</h2>
                 <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} />
