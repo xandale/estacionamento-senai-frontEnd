@@ -139,11 +139,11 @@ function Usuario() {
           <button onClick={() => setEditando(true)}>Editar</button>
         ) : (
           <>
-            <button onClick={atualizarUsuario} style={{ marginRight: "10px" }}>Salvar alterações</button>
+            <button onClick={atualizarUsuario} style={{ marginRight: "10px", marginBottom: "10px" }}>Salvar alterações</button>
             <button onClick={() => { setEditando(false); buscarDadosUsuario(); }}>Cancelar</button>
           </>
         )}
-        <button onClick={excluirUsuario} style={{ marginLeft: "10px", backgroundColor: "red", color: "white" }}>
+        <button className="button-delete" onClick={excluirUsuario} style={{ marginLeft: "10px", backgroundColor: "red", color: "white" }}>
           Excluir conta
         </button>
       </div>

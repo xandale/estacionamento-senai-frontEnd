@@ -171,7 +171,7 @@ function Veiculos() {
                 setNovaCor(item.cor);
                 setNovoTipoVeiculo(item.tipo_veiculo);
               }}>Editar</button>
-              <button onClick={() => deletarVeiculo(item.id_veiculo)}>Excluir</button>
+              <button className="button-delete" onClick={() => deletarVeiculo(item.id_veiculo)}>Excluir</button>
             </>
           )}
         </div>

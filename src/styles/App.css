@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f1f4f9;
+  background-color: #FAFAFA;
   color: #2c3e50;
   line-height: 1.6;
   min-height: 100vh;
@@ -28,18 +28,59 @@ body {
 }
 
 .container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 32px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px 30px;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease-in-out;
 }
 
-.container:hover {
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+/* Título */
+.container h1,
+.container h2 {
+  color: #005CA9;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 24px;
 }
+
+/* Inputs e selects */
+.container input,
+.container select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: border 0.2s ease;
+}
+
+.container input:focus,
+.container select:focus {
+  border-color: #005CA9;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 92, 169, 0.2);
+}
+
+
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .container {
+    padding: 25px 15px;
+  }
+
+  .container .btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
 
 /* ============================= */
 /* Títulos e textos */
@@ -148,7 +189,7 @@ button {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, #005CA9, #005CA9);
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -160,7 +201,7 @@ button-delete {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #3498db, #2980b9);
+  background: linear-gradient(135deg, #e74c3c, #e74c3c);
   color: #fff;
   font-weight: 600;
   cursor: pointer;
@@ -168,12 +209,28 @@ button-delete {
 }
 
 button-delete:hover {
-  background: linear-gradient(135deg, #2980b9, #1c6ea4);
+  background: linear-gradient(135deg, #e74c3c, #e74c3c);
+  transform: translateY(-2px);
+}
+
+.button-delete {
+  padding: 14px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #e74c3c, #e74c3c);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.button-delete:hover {
+  background: linear-gradient(135deg, #e74c3c, #e74c3c);
   transform: translateY(-2px);
 }
 
 button:hover {
-  background: linear-gradient(135deg, #2980b9, #1c6ea4);
   transform: translateY(-2px);
 }
 
@@ -208,14 +265,15 @@ button:active {
 }
 
 .nav-links a {
-  color: #3498db;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: #1c6ea4;
+  transform: translateY(-2px);
+  color: #cacaca;
 }
 
 /* ============================= */

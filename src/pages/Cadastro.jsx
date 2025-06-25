@@ -47,7 +47,8 @@ function Cadastro() {
                 <select value={tipo_usuario} onChange={(e) => setTipo_usuario(e.target.value)}>
                     <option value="Aluno">Aluno</option>
                     <option value="Professor">Professor</option>
-                    <option value="Admin">Admin</option>
+                    <option value="Funcionario">Funcionario</option>
+                    <option value="Visitante">Visitante</option>
                 </select>
                 <input type="password" placeholder="Digite sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                 <button type="submit">Cadastrar</button>

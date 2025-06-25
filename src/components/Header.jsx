@@ -13,7 +13,7 @@ function Header() {
     return (
         <header className="main-header">
             <div className="header-content">
-                <h1 className="logo">🚗 Estacionamento</h1>
+                <h1 className="logo">Estacionamento</h1>
                 <nav className="nav-links">
                     <Link to="/home"><i className="lucide lucide-home"></i> Home</Link>
                     <Link to="/usuario"><i className="lucide lucide-user"></i> Usuário</Link>
