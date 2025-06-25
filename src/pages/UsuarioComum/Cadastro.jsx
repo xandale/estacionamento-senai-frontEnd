@@ -6,7 +6,6 @@ function Cadastro() {
     const [cpf, setCpf] = useState('');
     const [telefone, setTelefone] = useState('');
     const [email, setEmail] = useState('');
-    const [tipo_usuario, setTipo_usuario] = useState('Aluno');
     const [senha, setSenha] = useState('');
 
     const navigate = useNavigate();
@@ -20,7 +19,7 @@ function Cadastro() {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    nome, cpf, telefone, email, tipo_usuario, senha
+                    nome, cpf, telefone, email, senha
                 })
             });
 
@@ -37,18 +36,13 @@ function Cadastro() {
     }
 
     return (
-        <div className="container">
+        <div className="container-cadastro">
             <form onSubmit={handleSubmit}>
                 <h2>Cadastro</h2>
                 <input type="text" placeholder="Digite seu nome" value={nome} onChange={(e) => setNome(e.target.value)} />
                 <input type="text" placeholder="Digite seu CPF" value={cpf} onChange={(e) => setCpf(e.target.value)} />
                 <input type="text" placeholder="Digite seu telefone" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
                 <input type="email" placeholder="Digite seu email" value={email} onChange={(e) => setEmail(e.target.value)} />
-                <select value={tipo_usuario} onChange={(e) => setTipo_usuario(e.target.value)}>
-                    <option value="Aluno">Aluno</option>
-                    <option value="Professor">Professor</option>
-                    <option value="Admin">Admin</option>
-                </select>
                 <input type="password" placeholder="Digite sua senha" value={senha} onChange={(e) => setSenha(e.target.value)} />
                 <button type="submit">Cadastrar</button>
             </form>
