@@ -13,7 +13,9 @@ function AppRoutes() {
   const location = useLocation();
 
   // Verifica se a rota atual é login ou cadastro
-  const esconderHeader = ["/login", "/cadastro"].includes(location.pathname);
+const rotasSemHeader = ["/", "/cadastro"];
+const esconderHeader = rotasSemHeader.includes(location.pathname);
+  // Define se o Header deve ser escondido com base na rota atual
 
   return (
     <>
@@ -21,11 +23,10 @@ function AppRoutes() {
 
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/cadastro" element={<Cadastro />} />
         <Route path="/usuario" element={<Usuario />} />
         <Route path="/veiculo" element={<Veiculos />} />
-        <Route path="*" element={<Login />} /> {/* Rota padrão */}
       </Routes>
     </>
   );
