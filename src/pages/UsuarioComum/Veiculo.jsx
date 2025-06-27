@@ -166,7 +166,6 @@ function Veiculos() {
               <p><strong>Modelo:</strong> {item.modelo}</p>
               <p><strong>Cor:</strong> {item.cor}</p>
               <p><strong>Tipo:</strong> {item.tipo_veiculo}</p>
-              <p><strong>ID da vaga:</strong> {item.id_vaga}</p>
               <button onClick={() => {
                 setEditandoId(item.id_veiculo);
                 setNovaPlaca(item.placa);
