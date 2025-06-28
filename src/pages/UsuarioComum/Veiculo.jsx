@@ -11,9 +11,6 @@ function Veiculos() {
   const [tipoVeiculo, setTipoVeiculo] = useState('Outro');
   const [idVaga, setIdVaga] = useState('');
 
-  // Lista de vagas para selecionar
-  const [vagas, setVagas] = useState([]);
-
   // Edição
   const [editandoId, setEditandoId] = useState(null);
   const [novaPlaca, setNovaPlaca] = useState('');
@@ -23,15 +20,6 @@ function Veiculos() {
 
   const [filtroTipoVeiculo, setFiltroTipoVeiculo] = useState('');
 
-  // Buscar vagas disponíveis
-  async function buscarVagas() {
-    try {
-      const resposta = await axios.get("http://localhost:3000/vagas");
-      setVagas(resposta.data);
-    } catch (erro) {
-      console.error("Erro ao buscar vagas:", erro);
-    }
-  }
 
   async function buscarVeiculos() {
     try {
