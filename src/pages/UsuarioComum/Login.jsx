@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -8,30 +10,41 @@ function Login() {
 
     async function handleSubmit(event) {
         event.preventDefault();
+
+        console.log("Enviando login com:", { email, senha });
+
         try {
-            const resposta = await fetch('http://localhost:3000/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, senha })
+            const resposta = await axios.post('http://localhost:3000/login', {
+                email,
+                senha
             });
 
-            const dados = await resposta.json();
+            console.log("Resposta recebida:", resposta.data);
 
-            if (resposta.ok) {
-                localStorage.setItem("token", dados.token);
-                localStorage.setItem("tipo", dados.isAdmin ? "admin" : "usuario");
+            const token = resposta.data.token;
+            localStorage.setItem("token", token);
 
-                if (dados.isAdmin) {
-                    navigate("/admin/relatorios");
-                } else {
-                    navigate("/home");
-                }
+            const usuario = jwtDecode(token);
+            console.log("Usuário decodificado:", usuario);
+
+            const tipoUsuario = usuario.isAdmin ? "admin" : "usuario";
+            localStorage.setItem("tipo", tipoUsuario);
+
+            if (usuario.isAdmin) {
+                console.log("Redirecionando para admin/relatorios");
+                navigate("/admin/relatorios");
             } else {
-                alert("Login inválido: " + dados.mensagem);
+                console.log("Redirecionando para /home");
+                navigate("/home");
             }
         } catch (error) {
-            alert("Erro ao conectar com o servidor.");
             console.error("Erro na requisição:", error);
+
+            if (error.response) {
+                alert("Erro: " + error.response.data.mensagem);
+            } else {
+                alert("Erro ao conectar com o servidor.");
+            }
         }
     }
 
