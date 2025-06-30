@@ -25,10 +25,7 @@ function Home() {
     return (
         <div className="container">
             <h1>Estacionamento Sesi Senai!</h1>
-            <h2>Aqui é a HOME</h2>
-            <p>Aqui vai ter uma imagem para preencher espaço futuramente.</p>
-
-            <h3>Vagas do Estacion   amento</h3>
+            <h3>Vagas do Estacionamento</h3>
             {carregando ? (
                 <p>Carregando vagas...</p>
             ) : vagas ? (
@@ -40,6 +37,7 @@ function Home() {
             ) : (
                 <p>Não foi possível carregar os dados de vagas.</p>
             )}
+            <img src="https://www.se.senai.br/assets/img/logo.png" alt="Senai Logo" />
         </div>
     );
 }

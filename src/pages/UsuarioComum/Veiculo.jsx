@@ -36,6 +36,15 @@ function Veiculos() {
     }
   }
 
+  function formatarPlaca(placa) {
+    return placa
+      .toUpperCase()
+      .replace(/[^A-Z0-9]/g, '') // remove caracteres inválidos
+      .replace(/^([A-Z]{3})(\d{0,4})$/, '$1-$2') // insere hífen após 3 letras
+      .slice(0, 8); // limita a 8 caracteres
+  }
+  
+
   async function criarVeiculo(e) {
     e.preventDefault();
     try {
@@ -112,12 +121,13 @@ function Veiculos() {
     <div className="container">
       <h2>Cadastrar Novo Veículo</h2>
       <form onSubmit={criarVeiculo}>
-        <input 
-          placeholder="Placa" 
-          value={placa} 
-          onChange={(e) => setPlaca(e.target.value.toUpperCase())} 
-          required 
-        />
+      <input 
+  placeholder="Placa" 
+  value={placa} 
+  onChange={(e) => setPlaca(formatarPlaca(e.target.value))} 
+  required 
+/>
+
         <input 
           placeholder="Modelo" 
           value={modelo} 
@@ -159,12 +169,13 @@ function Veiculos() {
         <div key={item.id_veiculo} className="veiculo">
           {editandoId === item.id_veiculo ? (
             <>
-              <input 
-                placeholder="Placa" 
-                value={novaPlaca} 
-                onChange={(e) => setNovaPlaca(e.target.value.toUpperCase())} 
-                required 
-              />
+<input 
+  placeholder="Placa" 
+  value={novaPlaca} 
+  onChange={(e) => setNovaPlaca(formatarPlaca(e.target.value))} 
+  required 
+/>
+
               <input 
                 value={novoModelo} 
                 onChange={(e) => setNovoModelo(e.target.value)} 

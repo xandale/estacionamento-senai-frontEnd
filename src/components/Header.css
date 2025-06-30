@@ -19,9 +19,8 @@
   }
   
   .logo {
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: white;
+    height: auto;
+    width: 200px;
   }
   
   .nav-links {

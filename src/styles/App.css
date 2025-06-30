@@ -36,6 +36,9 @@ body {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   border: 1px solid #e0e0e0;
   transition: all 0.3s ease-in-out;
+  justify-content: center;
+  align-items: center;
+  
 }
 
 /* Título */
@@ -67,6 +70,19 @@ body {
   box-shadow: 0 0 0 2px rgba(0, 92, 169, 0.2);
 }
 
+.container img{
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+
+}
+
+.container li {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
 
 
 /* Responsivo */
@@ -419,3 +435,6 @@ header {
     padding: 25px 15px;
   }
 }
+
+
+

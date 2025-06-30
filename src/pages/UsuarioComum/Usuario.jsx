@@ -14,28 +14,58 @@ function Usuario() {
   const [editando, setEditando] = useState(false);
   const navigate = useNavigate();
 
-  // Buscar dados do usuário logado
+  // Máscaras
+  function formatarCPF(cpf) {
+    return cpf
+      .replace(/\D/g, '')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d)/, '$1.$2')
+      .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+  }
+
+  function formatarTelefone(telefone) {
+    telefone = telefone.replace(/\D/g, '');
+    if (telefone.length > 11) telefone = telefone.slice(0, 11);
+
+    if (telefone.length <= 10) {
+      return telefone
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{4})(\d)/, '$1-$2');
+    } else {
+      return telefone
+        .replace(/(\d{2})(\d)/, '($1) $2')
+        .replace(/(\d{5})(\d)/, '$1-$2');
+    }
+  }
+
   async function buscarDadosUsuario() {
     try {
       const token = localStorage.getItem("token");
-
       const retorno = await axios.get("http://localhost:3000/usuarios/me", {
         headers: { Authorization: token }
       });
-
-      setUsuario(retorno.data);
+  
+      const dados = retorno.data;
+  
+      // 🔽 Aplica a máscara assim que receber os dados
+      dados.cpf = formatarCPF(dados.cpf || '');
+      dados.telefone = formatarTelefone(dados.telefone || '');
+  
+      setUsuario(dados);
     } catch (erro) {
       console.error("Erro ao buscar dados do usuário:", erro);
     }
   }
-
-  // Atualizar dados do usuário
+  
   async function atualizarUsuario() {
     try {
       const token = localStorage.getItem("token");
-      const dadosAtualizados = { ...usuario };
+      const dadosAtualizados = {
+        ...usuario,
+        cpf: usuario.cpf.replace(/\D/g, ''),
+        telefone: usuario.telefone.replace(/\D/g, ''),
+      };
 
-      // Adiciona a senha só se o usuário digitou uma nova
       if (novaSenha.trim() !== "") {
         dadosAtualizados.senha = novaSenha;
       }
@@ -47,22 +77,19 @@ function Usuario() {
       alert("Dados atualizados com sucesso!");
       setEditando(false);
       setNovaSenha("");
-      buscarDadosUsuario(); // atualiza a tela com os novos dados
+      buscarDadosUsuario();
     } catch (erro) {
       console.error("Erro ao atualizar usuário:", erro);
       alert("Erro ao atualizar os dados.");
     }
   }
 
-  // Excluir usuário
   async function excluirUsuario() {
     const confirmacao = window.confirm("Tem certeza que deseja excluir sua conta? Esta ação é irreversível!");
-
     if (!confirmacao) return;
 
     try {
       const token = localStorage.getItem("token");
-
       await axios.delete("http://localhost:3000/usuarios/delete", {
         headers: { Authorization: token }
       });
@@ -76,7 +103,6 @@ function Usuario() {
     }
   }
 
-  // Carrega os dados na primeira vez
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
@@ -102,16 +128,18 @@ function Usuario() {
       <input
         type="text"
         value={usuario.cpf}
-        onChange={(e) => setUsuario({ ...usuario, cpf: e.target.value })}
+        onChange={(e) => setUsuario({ ...usuario, cpf: formatarCPF(e.target.value) })}
         disabled={!editando}
+        maxLength={14}
       />
 
       <label>Telefone:</label>
       <input
         type="text"
         value={usuario.telefone}
-        onChange={(e) => setUsuario({ ...usuario, telefone: e.target.value })}
+        onChange={(e) => setUsuario({ ...usuario, telefone: formatarTelefone(e.target.value) })}
         disabled={!editando}
+        maxLength={15}
       />
 
       <label>Email:</label>

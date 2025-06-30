@@ -66,7 +66,7 @@ function Login() {
                 />
                 <button type="submit">Entrar</button>
             </form>
-            <button type="button" onClick={() => navigate('/cadastro')}>Cadastre-se</button>
+            <button className="button-cadastro" type="button" onClick={() => navigate('/cadastro')}>Cadastre-se</button>
         </div>
     );
 }
