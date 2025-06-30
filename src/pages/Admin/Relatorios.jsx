@@ -108,14 +108,6 @@ function AdminRelatorios() {
           style={{ flex: "1 1 140px", padding: 8 }}
         />
 
-        <input
-          type="date"
-          name="data_fim"
-          value={filtros.data_fim}
-          onChange={handleChange}
-          style={{ flex: "1 1 140px", padding: 8 }}
-        />
-
         <button
           onClick={buscarAcessos}
           style={{ padding: "10px 20px", cursor: "pointer" }}
